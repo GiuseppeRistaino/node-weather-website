@@ -21,6 +21,17 @@
 
 const request = require('postman-request')
 
+/**
+ * Goal: Add new data to forecast
+ * 
+ * 1. Update the forecast string to include new data
+ * 2. Commit your changes
+ * 3. Push your changes to GitHub and deploy to Heroku
+ * 4. Test your work in the live application
+ */
+
+
+
 const forecast = (latitude, longitude, callback) => {
     const url = 'http://api.weatherstack.com/current?access_key=764c275d21fc9e564e58d8c3772a98f4&query=' + encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude)
     
@@ -32,7 +43,9 @@ const forecast = (latitude, longitude, callback) => {
             callback('Unable to find location!')
         }
         else {
-            const message = `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degrees out. It feels like ${body.current.feelslike} degrees out`
+            const message = `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degrees out. It feels like ${body.current.feelslike} degrees out.\n
+            Local time: ${body.current.observation_time}\n
+            Humidity: ${body.current.humidity}`
             callback(undefined, message)
         }
     }})
