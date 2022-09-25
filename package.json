@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/Lesson_67/app.js",
-    "dev": "nodemon src/Lesson_67/app.js -e js,hbs"
+    "start": "node src/Lesson_68/app.js",
+    "dev": "nodemon src/Lesson_68/app.js -e js,hbs"
   },
   "keywords": [],
   "author": "",

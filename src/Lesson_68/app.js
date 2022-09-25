@@ -24,7 +24,10 @@ app.set('views', viewsDirectoryPath)
 hbs.registerPartials(partialDirectoryPath)
 
 //Setup static directory to serve
-app.use(express.static(publicDirectoryPath))
+app.use(express.static(publicDirectoryPath), function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+})
 
 app.get('/index', (req, res) => {
     res.render('index', {
